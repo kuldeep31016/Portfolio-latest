@@ -887,6 +887,399 @@ border-radius: 0.5rem;
 
 /* =================== ENHANCED STYLES =================== */
 
+/* Hero Section Enhancements */
+.tagline {
+    margin: 20px 0;
+}
+
+.tagline p {
+    font-size: 1.2rem;
+    color: #0ef;
+    font-weight: 600;
+    opacity: 0;
+    animation: slideBottom 1s ease forwards;
+    animation-delay: 1.2s;
+}
+
+.highlight-stats {
+    display: flex;
+    gap: 30px;
+    margin: 30px 0;
+    flex-wrap: wrap;
+}
+
+.stat-highlight {
+    text-align: center;
+    padding: 15px;
+    background: rgba(0, 238, 255, 0.1);
+    border: 1px solid rgba(0, 238, 255, 0.3);
+    border-radius: 10px;
+    min-width: 120px;
+    transition: all 0.3s ease;
+}
+
+.stat-highlight:hover {
+    transform: translateY(-5px);
+    background: rgba(0, 238, 255, 0.2);
+    box-shadow: 0 10px 20px rgba(0, 238, 255, 0.2);
+}
+
+.stat-num {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #0ef;
+    margin-bottom: 5px;
+}
+
+.stat-text {
+    font-size: 0.9rem;
+    color: #ededed;
+    opacity: 0.8;
+}
+
+/* Services Section Enhancements */
+.service-tech {
+    display: flex;
+    gap: 8px;
+    margin: 15px 0;
+    flex-wrap: wrap;
+}
+
+.service-tech span {
+    background: rgba(0, 238, 255, 0.1);
+    color: #0ef;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    border: 1px solid rgba(0, 238, 255, 0.3);
+}
+
+.services-list > div {
+    transition: transform 0.3s ease;
+}
+
+.services-list > div:hover {
+    transform: translateY(-10px);
+}
+
+/* Enhanced Skills Section */
+.progress-line.react span {
+    width: 90%;
+    background: linear-gradient(90deg, #61dafb, #21d4fd);
+}
+
+.progress-line.typescript span {
+    width: 80%;
+    background: linear-gradient(90deg, #3178c6, #5ba2f7);
+}
+
+.progress-line.nodejs span {
+    width: 75%;
+    background: linear-gradient(90deg, #339933, #68cc68);
+}
+
+.progress-line.mongodb span {
+    width: 70%;
+    background: linear-gradient(90deg, #47A248, #7bc569);
+}
+
+.progress-line.git span {
+    width: 85%;
+    background: linear-gradient(90deg, #f05032, #ff7a5a);
+}
+
+/* Project Features */
+.project-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 15px 0;
+}
+
+.feature {
+    background: rgba(5, 17, 41, 0.8);
+    color: #0ef;
+    padding: 4px 8px;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    border: 1px solid rgba(0, 238, 255, 0.2);
+}
+
+/* Certifications Section */
+.certifications {
+    padding: 100px 0;
+    background: #081b29;
+}
+
+.certifications-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.cert-card {
+    background: rgba(5, 17, 41, 0.8);
+    border-radius: 15px;
+    padding: 30px;
+    border: 1px solid rgba(0, 238, 255, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.cert-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(0, 238, 255, 0.3);
+    box-shadow: 0 20px 40px rgba(0, 238, 255, 0.1);
+}
+
+.cert-card.achievement {
+    border-color: rgba(255, 215, 0, 0.3);
+}
+
+.cert-card.achievement:hover {
+    border-color: rgba(255, 215, 0, 0.5);
+    box-shadow: 0 20px 40px rgba(255, 215, 0, 0.1);
+}
+
+.cert-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(0, 238, 255, 0.1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    border: 1px solid rgba(0, 238, 255, 0.2);
+}
+
+.cert-icon i {
+    font-size: 28px;
+}
+
+.cert-content h3 {
+    color: #ededed;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.cert-content h4 {
+    color: #0ef;
+    font-size: 1rem;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.cert-content p {
+    color: #ededed;
+    opacity: 0.8;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.cert-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.cert-skills span {
+    background: rgba(0, 238, 255, 0.1);
+    color: #0ef;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    border: 1px solid rgba(0, 238, 255, 0.2);
+}
+
+.cert-date {
+    color: #0ef;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Currently Learning Section */
+.learning-section {
+    background: rgba(5, 17, 41, 0.5);
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    border: 1px solid rgba(0, 238, 255, 0.1);
+}
+
+.learning-section h3 {
+    color: #0ef;
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+}
+
+.learning-items {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.learning-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+    background: rgba(0, 238, 255, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(0, 238, 255, 0.1);
+    transition: all 0.3s ease;
+    min-width: 120px;
+}
+
+.learning-item:hover {
+    transform: translateY(-5px);
+    background: rgba(0, 238, 255, 0.1);
+    border-color: rgba(0, 238, 255, 0.3);
+}
+
+.learning-item i {
+    font-size: 32px;
+    color: #0ef;
+}
+
+.learning-item span {
+    color: #ededed;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Project Modal Enhancements */
+.project-modal-content {
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.project-modal-desc {
+    font-size: 1.1rem;
+    color: #ededed;
+    opacity: 0.9;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.modal-section {
+    margin-bottom: 30px;
+}
+
+.modal-section h3 {
+    color: #0ef;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.features-list,
+.challenges-list,
+.learnings-list {
+    list-style: none;
+    padding: 0;
+}
+
+.features-list li,
+.challenges-list li,
+.learnings-list li {
+    color: #ededed;
+    opacity: 0.8;
+    padding: 8px 0;
+    padding-left: 20px;
+    position: relative;
+    line-height: 1.5;
+}
+
+.features-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #0ef;
+    font-weight: bold;
+}
+
+.challenges-list li::before {
+    content: '⚡';
+    position: absolute;
+    left: 0;
+}
+
+.learnings-list li::before {
+    content: '💡';
+    position: absolute;
+    left: 0;
+}
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 30px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(0, 238, 255, 0.1);
+    flex-wrap: wrap;
+}
+
+/* Responsive Improvements */
+@media (max-width: 768px) {
+    .highlight-stats {
+        justify-content: center;
+        gap: 15px;
+    }
+    
+    .stat-highlight {
+        min-width: 100px;
+        padding: 12px;
+    }
+    
+    .stat-num {
+        font-size: 1.5rem;
+    }
+    
+    .certifications-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .learning-items {
+        gap: 15px;
+    }
+    
+    .learning-item {
+        min-width: 100px;
+        padding: 15px;
+    }
+    
+    .learning-item i {
+        font-size: 24px;
+    }
+    
+    .modal-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .project-features {
+        justify-content: center;
+    }
+}
+
 /* Loading Screen */
 #loading-screen {
     position: fixed;

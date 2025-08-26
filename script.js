@@ -1,8 +1,15 @@
 // =================== ENHANCED PORTFOLIO JAVASCRIPT ===================
 
-// Typed.js for hero section
+// Typed.js for hero section with more variations
 var typed = new Typed(".text", {
-    strings: ["Frontend Developer", "Web Developer", "UI/UX Designer", "Full Stack Developer"],
+    strings: [
+        "Frontend Developer", 
+        "React Specialist", 
+        "UI/UX Enthusiast", 
+        "JavaScript Expert",
+        "Web Designer",
+        "Problem Solver"
+    ],
     typeSpeed: 100,
     backSpeed: 100,
     backDelay: 1000,
