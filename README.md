@@ -195,4 +195,4 @@ The enhanced portfolio achieves:
 
 **Built with ❤️ by Kuldeep Raj** | **© 2024 All Rights Reserved**
 
-*This portfolio represents the perfect blend of modern web technologies and timeless design principles, showcasing both technical skills and creative vision.*
+*This portfolio represents the perfect blend of modern web technologies and timeless design principles, showcasing both technical skills and creative vision.*# Portfolio-new
