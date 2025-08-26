@@ -372,22 +372,45 @@ if (themeToggle) {
 function toggleTheme() {
     const root = document.documentElement;
     const themeIcon = themeToggle.querySelector('i');
+    const body = document.body;
     
     if (isDarkMode) {
-        // Dark mode colors (current)
+        // Dark Blue mode (current/default)
+        body.style.backgroundColor = '#081b29';
+        body.style.color = '#ededed';
         root.style.setProperty('--bg-primary', '#081b29');
         root.style.setProperty('--bg-secondary', '#051129');
         root.style.setProperty('--text-primary', '#ededed');
-        root.style.setProperty('--accent', '#0ef');
+        root.style.setProperty('--accent', '#00eeff');
         themeIcon.className = 'bx bx-moon';
+        
+        // Update header
+        const header = document.querySelector('header');
+        if (header) {
+            header.style.backgroundColor = 'rgba(8, 27, 41, 0.8)';
+        }
     } else {
-        // Light mode colors (keeping the same color scheme but lighter)
-        root.style.setProperty('--bg-primary', '#0a1d31');
-        root.style.setProperty('--bg-secondary', '#071426');
-        root.style.setProperty('--text-primary', '#f0f0f0');
-        root.style.setProperty('--accent', '#00f0ff');
+        // Black mode
+        body.style.backgroundColor = '#000000';
+        body.style.color = '#ffffff';
+        root.style.setProperty('--bg-primary', '#000000');
+        root.style.setProperty('--bg-secondary', '#111111');
+        root.style.setProperty('--text-primary', '#ffffff');
+        root.style.setProperty('--accent', '#00eeff');
         themeIcon.className = 'bx bx-sun';
+        
+        // Update header
+        const header = document.querySelector('header');
+        if (header) {
+            header.style.backgroundColor = 'rgba(0, 0, 0, 0.9)';
+        }
     }
+    
+    // Update all sections
+    const sections = document.querySelectorAll('section');
+    sections.forEach(section => {
+        section.style.backgroundColor = isDarkMode ? '#081b29' : '#000000';
+    });
 }
 
 // =================== FLOATING ANIMATIONS ===================
@@ -569,6 +592,32 @@ if ('performance' in window) {
     });
 }
 
+// =================== RESUME DOWNLOAD FUNCTION ===================
+function downloadResume() {
+    // Create a temporary link element
+    const link = document.createElement('a');
+    link.href = './resume.pdf';
+    link.download = 'Kuldeep_Raj_Resume.pdf';
+    
+    // Add to document, click, and remove
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    
+    // Optional: Show download started message
+    const downloadBtn = document.getElementById('downloadBtn');
+    const originalText = downloadBtn.innerHTML;
+    downloadBtn.innerHTML = '<i class="bx bx-check"></i> Download Started!';
+    downloadBtn.style.background = 'linear-gradient(135deg, #00ff88, #00cc6a)';
+    
+    // Reset button after 2 seconds
+    setTimeout(() => {
+        downloadBtn.innerHTML = originalText;
+        downloadBtn.style.background = '';
+    }, 2000);
+}
+
 // Global functions for HTML onclick events
 window.openProjectModal = openProjectModal;
 window.closeProjectModal = closeProjectModal;
+window.downloadResume = downloadResume;

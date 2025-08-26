@@ -198,64 +198,185 @@ body {
     font-size: 60px;
     padding-bottom: 70px;
 }
+
 .sub-title span{
     color: #0ef;
 }
 .services-list{
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(259px,1fr));
-    grid-gap: 40px;
-    margin-top: 50px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-gap: 30px;
+    margin-top: 30px; /* Reduced from 50px to 30px */
+    align-items: stretch; /* Equal height cards */
 }
+
 .services-list div{
-    background-color: transparent;
-    padding: 40px;
-    font-size: 13px;
-    font-weight: 13px;
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(10px);
+    padding: 25px;
     border-radius: 20px;
-    border-right: 10px;
-    transition: background 0.5s, transform 0.5s;
-   box-shadow: 1px 1px 20px /* #012290f7 ,
-                1px 1px 40px #0053b8f7*/;
+    border: 1px solid rgba(0, 238, 255, 0.1);
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 200px; /* Increased from 140px to 200px */
+    position: relative;
+    overflow: hidden;
 }
+
+/* Network pattern overlay */
+.services-list div::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 20% 20%, rgba(0, 238, 255, 0.1) 1px, transparent 1px),
+        radial-gradient(circle at 80% 80%, rgba(0, 238, 255, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Card content positioning */
+.services-list div > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Header section with icon and title */
 .services-list div i{
-    font-size: 50px;
-    margin-bottom: 30px;
+    font-size: 32px;
+    margin-bottom: 12px;
+    color: #0ef;
+    text-align: left;
+    display: block;
 }
+
 .services-list div h2{
-    font-size: 30px;
-    font-weight: 500;
-    margin-bottom: 15px;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #ffffff;
+    text-align: left;
+    line-height: 1.3;
 }
+
+/* Description text */
+.services-list div p {
+    color: #b8b8b8;
+    font-size: 13px;
+    line-height: 1.5;
+    text-align: left;
+    margin-bottom: 12px;
+    flex-grow: 1; /* Takes up available space */
+}
+
+/* Tags container - centered */
+.service-tech {
+    display: flex;
+    gap: 6px;
+    margin: 12px 0;
+    flex-wrap: wrap;
+    justify-content: center; /* Center the tags */
+    align-items: center;
+}
+
+.service-tech span {
+    background: rgba(0, 238, 255, 0.15);
+    color: #0ef;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    border: 1px solid rgba(0, 238, 255, 0.3);
+    white-space: nowrap;
+    transition: all 0.3s ease;
+}
+
+.service-tech span:hover {
+    background: rgba(0, 238, 255, 0.25);
+    transform: translateY(-2px);
+}
+
+/* Button styling - always at bottom */
 .services-list div a{
     text-decoration: none;
-    color: #000000;
-    font-size: 12px;
-    margin-top: 20px;
-    display: inline-block;
+    color: #081b29;
+    font-size: 14px;
+    margin-top: auto; /* Push to bottom */
+    text-align: center;
+    align-self: center; /* Center horizontally */
+    width: fit-content;
 }
+
 .read{
     display: inline-block;
-    padding: 12px 28px;
-    background: #0ef;
-    border-radius: 40px;
-    font-size: 16px;
+    padding: 10px 18px;
+    background: linear-gradient(135deg, #0ef, #00b4d8);
+    border-radius: 20px;
+    font-size: 13px;
     color: #081b29;  
     letter-spacing: 1px;
     text-decoration: none;
     font-weight: 600;
-    opacity: 0;
-    animation: slideTop 1s ease forwards;
-    animation-delay: 2s;
-    box-shadow: 0 0 5px #0ef, 0 0 25px #0ef;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 238, 255, 0.3);
+    margin-top: auto;
 }
-.read:hover
-{
-    box-shadow: 0 0 5px cyan,
-             0 0 25px cyan, 0 0 50px cyan, 0 0 100px cyan, 0 0 200px cyan;
+
+.read:hover {
+    transform: translateY(-3px);
+    box-shadow: 
+        0 6px 20px rgba(0, 238, 255, 0.4),
+        0 0 30px rgba(0, 238, 255, 0.2);
+    background: linear-gradient(135deg, #00b4d8, #0ef);
 }
+
+/* Hover effects for cards */
 .services-list div:hover{
     transform: translateY(-10px);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.4),
+        0 0 50px rgba(0, 238, 255, 0.1);
+    border-color: rgba(0, 238, 255, 0.3);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .services-list {
+        grid-template-columns: 1fr;
+        grid-gap: 20px;
+        padding: 0 15px;
+    }
+    
+    .services-list div {
+        padding: 20px;
+        min-height: 200px; /* Set to 200px for tablet */
+    }
+    
+    .services-list div h2 {
+        font-size: 18px;
+    }
+    
+    .services-list div i {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 480px) {
+    .service-tech {
+        justify-content: flex-start; /* Left align on very small screens */
+    }
+    
+    .services-list div {
+        padding: 18px;
+        min-height: 200px; /* Set to 200px for mobile */
+    }
 }
 section{
     display: flex;
@@ -375,6 +496,28 @@ section{
 .progress-line.Python span::after{
     content: "75%";
 }
+
+/* New skills percentage displays */
+.progress-line.react span::after{
+    content: "90%";
+}
+
+.progress-line.typescript span::after{
+    content: "80%";
+}
+
+.progress-line.nodejs span::after{
+    content: "75%";
+}
+
+.progress-line.mongodb span::after{
+    content: "70%";
+}
+
+.progress-line.git span::after{
+    content: "85%";
+}
+
 .progress-line span::before{
     content: "";
     position: absolute;
@@ -445,6 +588,8 @@ section{
 .path-2{animation: animate-path2 1s 1s linear forwards;}
 .path-3{animation: animate-path3 1s 1s linear forwards;}
 .path-4{animation: animate-path4 1s 1s linear forwards;}
+.path-5{animation: animate-path5 1s 1s linear forwards;}
+.path-6{animation: animate-path6 1s 1s linear forwards;}
 
 @keyframes animate-path1{
     100%{
@@ -464,6 +609,16 @@ section{
 @keyframes animate-path4{
     100%{
         stroke-dashoffset: 75;
+    }
+}
+@keyframes animate-path5{
+    100%{
+        stroke-dashoffset: 100;
+    }
+}
+@keyframes animate-path6{
+    100%{
+        stroke-dashoffset: 60;
     }
 }
 .radial-bar .percentage{
@@ -850,8 +1005,8 @@ border-radius: 0.5rem;
 .about-img {
     margin-left: 160px;
     margin-top: 35px;
-    width: 350px; /* Set the width */
-    height: 350px; /* Set the height */
+    width: 380px; /* Increased from 350px for slight zoom */
+    height: 380px; /* Increased from 350px for slight zoom */
     position: relative; /* To control animation position */
     overflow: hidden; /* Ensure circular shape hides overflow */
     border-radius: 50%; /* Makes the image circular */
@@ -938,25 +1093,11 @@ border-radius: 0.5rem;
     opacity: 0.8;
 }
 
-/* Services Section Enhancements */
-.service-tech {
-    display: flex;
-    gap: 8px;
-    margin: 15px 0;
-    flex-wrap: wrap;
-}
-
-.service-tech span {
-    background: rgba(0, 238, 255, 0.1);
-    color: #0ef;
-    padding: 4px 10px;
-    border-radius: 12px;
-    font-size: 0.8rem;
-    border: 1px solid rgba(0, 238, 255, 0.3);
-}
+/* Services Section Enhancements - Updated */
+/* Service-tech styling is now integrated above in the main services section */
 
 .services-list > div {
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .services-list > div:hover {
