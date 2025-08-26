@@ -3,12 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Potfolio</title>
+    <title>Kuldeep Raj - Frontend Developer | Portfolio</title>
+    <meta name="description" content="Kuldeep Raj - Frontend Developer with 3+ years experience in web design, UI/UX, and modern web technologies.">
+    <meta name="keywords" content="Frontend Developer, Web Designer, UI/UX, React, JavaScript, Portfolio">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://portfolio-initial-ruby.vercel.app/">
+    <meta property="og:title" content="Kuldeep Raj - Frontend Developer Portfolio">
+    <meta property="og:description" content="Frontend Developer with 3+ years experience in web design, UI/UX, and modern web technologies.">
+    <meta property="og:image" content="./photo.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://portfolio-initial-ruby.vercel.app/">
+    <meta property="twitter:title" content="Kuldeep Raj - Frontend Developer Portfolio">
+    <meta property="twitter:description" content="Frontend Developer with 3+ years experience in web design, UI/UX, and modern web technologies.">
+    <meta property="twitter:image" content="./photo.jpg">
+
     <link rel="stylesheet" href="style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <!-- <style>
         /* Container to hold all images */
     .row {
@@ -35,10 +54,55 @@
             /* object-fit: contain; Ensures the image fits without distortion */
         }
     </style> -->
+    
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loader">
+            <div class="loader-inner">
+                <div class="loader-line-wrap">
+                    <div class="loader-line"></div>
+                </div>
+                <div class="loader-line-wrap">
+                    <div class="loader-line"></div>
+                </div>
+                <div class="loader-line-wrap">
+                    <div class="loader-line"></div>
+                </div>
+                <div class="loader-line-wrap">
+                    <div class="loader-line"></div>
+                </div>
+                <div class="loader-line-wrap">
+                    <div class="loader-line"></div>
+                </div>
+            </div>
+            <div class="loading-text">
+                <span class="loading-letter">K</span>
+                <span class="loading-letter">U</span>
+                <span class="loading-letter">L</span>
+                <span class="loading-letter">D</span>
+                <span class="loading-letter">E</span>
+                <span class="loading-letter">E</span>
+                <span class="loading-letter">P</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Progress Bar -->
+    <div id="scroll-progress"></div>
+    
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
 </head>
 <body>
+    <!-- Particle Background -->
+    <div id="particles-js"></div>
+    
     <header class="header">
-        <a href="#" class="logo" style="color: #00eeff;">Portfolio </a>
+        <a href="#" class="logo" style="color: #00eeff;">
+            <span class="logo-text">Portfolio</span>
+            <div class="logo-underline"></div>
+        </a>
 
         <nav class="navbar">
             <a href="#home" style="--i:1;" class="active">Home</a>
@@ -47,26 +111,77 @@
             <a href="#Projects" style="--i:4;">Projects</a>
             <a href="#contact" style="--i:5;">Contact</a>
         </nav>
+        
+        <!-- Mobile Menu Toggle -->
+        <div class="mobile-menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        
+        <!-- Theme Toggle -->
+        <div class="theme-toggle">
+            <i class='bx bx-moon'></i>
+        </div>
     </header>
     <section class="home" id="home">
-        <div class="home-content">
+        <div class="home-content" data-aos="fade-right" data-aos-duration="1000">
             <h3>Hello, It's Me </h3>
             <h1>Kuldeep Raj</h1>
             <h3>And I'm a <span class="text"></span></h3>
             <p>I'm a web designer with extensive experience for over 3 years.
-                <br>expertise is to create and Website design,frontend design ,and
+                <br>expertise is to create and Website design, frontend design, and
                 <br>many more....   </p>
+            
+            <!-- Tech Stack Icons -->
+            <div class="tech-stack">
+                <div class="tech-item" data-tooltip="HTML5">
+                    <i class='bx bxl-html5'></i>
+                </div>
+                <div class="tech-item" data-tooltip="CSS3">
+                    <i class='bx bxl-css3'></i>
+                </div>
+                <div class="tech-item" data-tooltip="JavaScript">
+                    <i class='bx bxl-javascript'></i>
+                </div>
+                <div class="tech-item" data-tooltip="React">
+                    <i class='bx bxl-react'></i>
+                </div>
+                <div class="tech-item" data-tooltip="Node.js">
+                    <i class='bx bxl-nodejs'></i>
+                </div>
+                <div class="tech-item" data-tooltip="Python">
+                    <i class='bx bxl-python'></i>
+                </div>
+            </div>
+            
             <div class="home-sci">
-                <a href="https://www.linkedin.com/in/imkuldeepraj06" style="--i:6;"><i class='bx bxl-linkedin'></i></i></a>
-                <a href="https://www.instagram.com/imkuldeep.raj" style="--i:7;"><i class='bx bxl-instagram' ></i></a>
-                <a href="#" style="--i:8;"><i class='bx bxl-twitter' ></i></a>
-                <a href="https://wa.me/9508874235?text=Hello" style="--i:9;"><i class='bx bxl-whatsapp' ></i></a>
-                <a href="https://github.com/kuldeep31016" style="--i:10;"><i class='bx bxl-github' ></i></a>
+                <a href="https://www.linkedin.com/in/imkuldeepraj06" style="--i:6;" data-tooltip="LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                <a href="https://www.instagram.com/imkuldeep.raj" style="--i:7;" data-tooltip="Instagram"><i class='bx bxl-instagram'></i></a>
+                <a href="#" style="--i:8;" data-tooltip="Twitter"><i class='bx bxl-twitter'></i></a>
+                <a href="https://wa.me/9508874235?text=Hello" style="--i:9;" data-tooltip="WhatsApp"><i class='bx bxl-whatsapp'></i></a>
+                <a href="https://github.com/kuldeep31016" style="--i:10;" data-tooltip="GitHub"><i class='bx bxl-github'></i></a>
             </div>  
-            <a href="#" class="btn-box">More About Me</a>  
+            
+            <div class="cta-buttons">
+                <a href="#about" class="btn-box primary">More About Me</a>
+                <a href="#contact" class="btn-box secondary">
+                    <i class='bx bx-download'></i>
+                    Download CV
+                </a>
+            </div>
         </div>
-        <div class="about-img">
-            <img src="photo.jpg" id="cover" class="profile-pic">
+        <div class="about-img" data-aos="fade-left" data-aos-duration="1000">
+            <div class="image-container">
+                <img src="photo.jpg" id="cover" class="profile-pic">
+                <div class="image-overlay"></div>
+                <div class="floating-icons">
+                    <div class="floating-icon" style="--delay: 0s">💻</div>
+                    <div class="floating-icon" style="--delay: 1s">🚀</div>
+                    <div class="floating-icon" style="--delay: 2s">⚡</div>
+                    <div class="floating-icon" style="--delay: 3s">🎨</div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -271,6 +386,134 @@
 </section>
 
 
+<!-- Enhanced Projects Section -->
+<section class="projects-enhanced" id="Projects">
+    <div class="container" data-aos="fade-up" data-aos-duration="1000">
+        <h2 class="section-title">My Latest <span>Projects</span></h2>
+        <p class="section-subtitle">Explore my recent work and creative solutions</p>
+        
+        <!-- Project Filter -->
+        <div class="project-filters">
+            <button class="filter-btn active" data-filter="all">All Projects</button>
+            <button class="filter-btn" data-filter="react">React</button>
+            <button class="filter-btn" data-filter="javascript">JavaScript</button>
+            <button class="filter-btn" data-filter="fullstack">Full Stack</button>
+            <button class="filter-btn" data-filter="ui-ux">UI/UX</button>
+        </div>
+        
+        <!-- Projects Grid -->
+        <div class="projects-grid">
+            <!-- Project 1 -->
+            <div class="project-card" data-category="react javascript" data-aos="fade-up" data-aos-delay="100">
+                <div class="project-image">
+                    <img src="ist.jpg" alt="E-commerce Website">
+                    <div class="project-overlay">
+                        <div class="project-actions">
+                            <button class="action-btn" onclick="openProjectModal('project1')">
+                                <i class='bx bx-show'></i>
+                            </button>
+                            <a href="#" class="action-btn">
+                                <i class='bx bx-link-external'></i>
+                            </a>
+                            <a href="#" class="action-btn">
+                                <i class='bx bxl-github'></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <div class="project-category">React • JavaScript</div>
+                    <h3 class="project-title">E-commerce Platform</h3>
+                    <p class="project-description">A full-featured e-commerce platform with shopping cart, user authentication, and payment integration.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">MongoDB</span>
+                        <span class="tech-tag">Stripe</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 2 -->
+            <div class="project-card" data-category="javascript ui-ux" data-aos="fade-up" data-aos-delay="200">
+                <div class="project-image">
+                    <img src="2nd.jpg" alt="Task Management App">
+                    <div class="project-overlay">
+                        <div class="project-actions">
+                            <button class="action-btn" onclick="openProjectModal('project2')">
+                                <i class='bx bx-show'></i>
+                            </button>
+                            <a href="#" class="action-btn">
+                                <i class='bx bx-link-external'></i>
+                            </a>
+                            <a href="#" class="action-btn">
+                                <i class='bx bxl-github'></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <div class="project-category">JavaScript • UI/UX</div>
+                    <h3 class="project-title">Task Management App</h3>
+                    <p class="project-description">A modern task management application with drag-and-drop functionality and real-time collaboration.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">Local Storage</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 3 -->
+            <div class="project-card" data-category="fullstack react" data-aos="fade-up" data-aos-delay="300">
+                <div class="project-image">
+                    <img src="3rd.jpg" alt="Social Media Dashboard">
+                    <div class="project-overlay">
+                        <div class="project-actions">
+                            <button class="action-btn" onclick="openProjectModal('project3')">
+                                <i class='bx bx-show'></i>
+                            </button>
+                            <a href="#" class="action-btn">
+                                <i class='bx bx-link-external'></i>
+                            </a>
+                            <a href="#" class="action-btn">
+                                <i class='bx bxl-github'></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <div class="project-category">Full Stack • React</div>
+                    <h3 class="project-title">Social Media Dashboard</h3>
+                    <p class="project-description">A comprehensive dashboard for managing multiple social media accounts with analytics and scheduling.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Express</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">Chart.js</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Load More Button -->
+        <div class="load-more-container">
+            <button class="btn-box primary">View All Projects</button>
+        </div>
+    </div>
+</section>
+
+<!-- Project Modal -->
+<div class="project-modal" id="projectModal">
+    <div class="modal-content">
+        <span class="modal-close" onclick="closeProjectModal()">&times;</span>
+        <div class="modal-body" id="modalBody">
+            <!-- Modal content will be inserted here -->
+        </div>
+    </div>
+</div>
+
 <section>
     <h2 class="sub-title" style="width: 100%; margin-top: 120px; margin-bottom: -80px;">Contact <span>Me</span></h2>
 </section>
@@ -294,13 +537,34 @@
 
     </div>
 
-    <div class="contact-form">
-        <form action="">
-            <input type="text" placeholder="Enter Your Name" required>
-            <input type="email" placeholder="Enter Your Email Id " required>
-            <input type="text" name="" id="" placeholder="Subject">
-            <textarea name="" id="" cols="40" rows="10" placeholder="Type Your Massage"></textarea>
-            <input type="submit" value="submit" class="send">
+    <div class="contact-form" data-aos="fade-left" data-aos-duration="1000">
+        <form action="" id="contactForm">
+            <div class="form-group">
+                <input type="text" id="name" placeholder="Enter Your Name" required>
+                <span class="form-error"></span>
+            </div>
+            <div class="form-group">
+                <input type="email" id="email" placeholder="Enter Your Email" required>
+                <span class="form-error"></span>
+            </div>
+            <div class="form-group">
+                <input type="text" id="subject" placeholder="Subject" required>
+                <span class="form-error"></span>
+            </div>
+            <div class="form-group">
+                <textarea id="message" cols="40" rows="10" placeholder="Type Your Message" required></textarea>
+                <span class="form-error"></span>
+            </div>
+            <div class="form-submit">
+                <button type="submit" class="send">
+                    <span class="btn-text">Send Message</span>
+                    <span class="btn-loading">
+                        <i class='bx bx-loader-alt bx-spin'></i>
+                        Sending...
+                    </span>
+                </button>
+            </div>
+            <div class="form-status" id="formStatus"></div>
         </form>
     </div>
 </section>
@@ -320,5 +584,25 @@
 
 
     <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Initialize AOS (Animate On Scroll)
+        AOS.init();
+        
+        // Initialize Particles.js
+        particlesJS.load('particles-js', 'particles.json', function() {
+            console.log('Particles.js loaded');
+        });
+        
+        // Loading screen
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('loading-screen').style.opacity = '0';
+                setTimeout(function() {
+                    document.getElementById('loading-screen').style.display = 'none';
+                }, 500);
+            }, 2000);
+        });
+    </script>
 </body>
 </html>
