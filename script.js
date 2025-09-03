@@ -3,12 +3,12 @@
 // Typed.js for hero section with more variations
 var typed = new Typed(".text", {
     strings: [
-        "Frontend Developer", 
-        "React Specialist", 
-        "UI/UX Enthusiast", 
-        "JavaScript Expert",
-        "Web Designer",
-        "Problem Solver"
+      "Full Stack Developer",
+        "React Specialist",
+        "UI/UX Enthusiast",
+        "Problem Solver",
+        "Open Source Contributor"
+    
     ],
     typeSpeed: 100,
     backSpeed: 100,
@@ -74,7 +74,7 @@ document.querySelectorAll('.navbar a').forEach(link => {
 
 // =================== SMOOTH SCROLLING & ACTIVE NAV ===================
 const navLinks = document.querySelectorAll('.navbar a');
-const sections = document.querySelectorAll('section[id]');
+const sections = document.querySelectorAll('section[id], div[id]');
 
 function updateActiveNav() {
     const scrollPos = window.scrollY + 100;
@@ -96,6 +96,34 @@ function updateActiveNav() {
 }
 
 window.addEventListener('scroll', updateActiveNav);
+
+// =================== ENHANCED SMOOTH SCROLLING ===================
+navLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href').substring(1);
+        const targetSection = document.getElementById(targetId);
+        
+        if (targetSection) {
+            const headerHeight = 80; // Adjust based on your header height
+            const targetPosition = targetSection.offsetTop - headerHeight;
+            
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
+            
+            // Update active state immediately
+            navLinks.forEach(navLink => navLink.classList.remove('active'));
+            this.classList.add('active');
+            
+            // Close mobile menu if open
+            const navbar = document.querySelector('.navbar');
+            navbar.classList.remove('active');
+        }
+    });
+});
 
 // =================== STATS COUNTER ANIMATION ===================
 function animateCounter(element, target) {
@@ -164,56 +192,92 @@ const modalBody = document.getElementById('modalBody');
 function openProjectModal(projectId) {
     const projectData = {
         'project1': {
-            title: 'E-commerce Platform',
-            description: 'A comprehensive e-commerce solution built with React and Node.js, featuring user authentication, shopping cart, payment processing, and admin dashboard.',
-            image: 'ist.jpg',
-            technologies: ['React', 'Node.js', 'MongoDB', 'Stripe', 'JWT'],
+            title: 'Trip Trekker',
+            description: 'A comprehensive Toursism Website built with javaScript and Node.js, featuring user authentication, shopping cart, payment processing, and admin dashboard.',
+            image: 'pictures/project1.png',
+            technologies: ['Html', 'Node.js', 'MongoDB', 'CSS', 'JWT',' JavaScript'],
             features: [
                 'User registration and authentication',
-                'Product catalog with search and filters',
-                'Shopping cart and wishlist functionality',
-                'Secure payment processing with Stripe',
-                'Order tracking and history',
+                'Destination search with advanced filters',
+               'Online booking and reservation system',
+                'User reviews and ratings for tours',
                 'Admin dashboard for inventory management'
-            ],
-            challenges: 'Implementing real-time inventory updates and handling concurrent user sessions.',
-            liveUrl: '#',
-            githubUrl: '#'
+            ]
         },
         'project2': {
-            title: 'Task Management App',
-            description: 'A modern task management application with drag-and-drop functionality, real-time collaboration, and beautiful UI.',
-            image: '2nd.jpg',
-            technologies: ['JavaScript', 'CSS3', 'HTML5', 'Local Storage'],
-            features: [
-                'Drag and drop task organization',
-                'Real-time collaboration',
-                'Task prioritization and categories',
-                'Progress tracking and analytics',
-                'Responsive design',
-                'Offline functionality'
-            ],
-            challenges: 'Creating smooth drag-and-drop interactions and maintaining data consistency.',
-            liveUrl: '#',
-            githubUrl: '#'
+            title: 'React UI Components Library',
+            description: 'A reusable component library built with React, TypeScript, and Tailwind CSS, documented using Storybook. Designed for scalability, accessibility, and modern UI patterns.',
+        image: 'pictures/project2.png',
+           technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Storybook'],
+           features: [
+    'Reusable InputField component with validation',
+    'DataTable with sorting and selection',
+    'Multiple variants, sizes, and themes',
+    'Storybook documentation for developers',
+    'Responsive and accessible design',
+    'Unit tests for component reliability'
+]
+
         },
         'project3': {
             title: 'Social Media Dashboard',
             description: 'A comprehensive dashboard for managing multiple social media accounts with analytics, scheduling, and performance metrics.',
-            image: '3rd.jpg',
-            technologies: ['React', 'Express', 'PostgreSQL', 'Chart.js'],
+            image: 'pictures/project3.png',
+            technologies: ['React', 'Tailwind CSS', 'Firebase', 'Chart.js'],
             features: [
-                'Multi-platform social media integration',
-                'Post scheduling and automation',
-                'Analytics and performance metrics',
-                'Content calendar',
-                'Team collaboration tools',
-                'Custom reporting'
-            ],
-            challenges: 'Integrating multiple social media APIs and handling rate limiting.',
-            liveUrl: '#',
-            githubUrl: '#'
-        }
+    'Browse and search books by title, author, or category',
+    'Add books to favorites and personal reading lists',
+    'Responsive and mobile-friendly design',
+    'Book details with descriptions and cover images',
+    'Seamless user experience with clean UI',
+    'Deployed on Vercel for fast performance'
+]
+
+        },
+       'project4': {
+    title: 'DBMS - Railway Management System',
+    description: 'A full-stack railway management system for handling ticket booking, train scheduling, and passenger information. Built with Java and MySQL to ensure security, reliability, and efficient database management.',
+    image: 'pictures/project4.png',
+    technologies: ['Java', 'MySQL', 'JDBC', 'Swing/JavaFX'],
+    features: [
+        '🎟️ Ticket booking and cancellation',
+        '🛤️ Train scheduling and management',
+        '👥 Passenger information system',
+        '📊 Admin dashboard with reports',
+        '🔒 Secure database operations',
+        'Responsive and user-friendly interface'
+    ]
+},
+'project5': {
+    title: 'FindScan – Trading Chart App',
+    description: 'A real-time trading chart application with candlestick charts and Bollinger Bands indicator, built to deliver a TradingView-like experience with smooth performance and customizable settings.',
+    image: 'pictures/project5.png',
+    technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'KLineCharts'],
+    features: [
+        'Candlestick chart with OHLCV data',
+        'Bollinger Bands indicator with customizable inputs',
+        'Real-time updates and smooth interactions',
+        'Configurable styles (color, line width, opacity)',
+        'Responsive and clean UI design',
+        'Deployed on Vercel for fast performance'
+    ]
+},
+
+       'project6': {
+    title: 'AuthForm - React Login System',
+    description: 'A simple authentication module built with React featuring login and signup forms, form validation, and responsive UI. Perfect as a starter template for secure applications.',
+    image: 'pictures/project6.png',
+    technologies: ['React', 'JavaScript', 'CSS3', 'Vite'],
+    features: [
+        'User login and signup forms',
+        'Form validation with error handling',
+        'Responsive and mobile-friendly design',
+        'Clean and minimal user interface',
+        'Reusable authentication component structure',
+        'Deployed on Vercel for fast performance'
+    ]
+}
+
     };
     
     const project = projectData[projectId];
