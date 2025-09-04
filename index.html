@@ -857,11 +857,11 @@
         
         <!-- Currently Learning Section -->
         <div class="learning-section" data-aos="fade-up" data-aos-delay="500">
-            <h3>🚀 Currently Learning</h3>
+            <h3> Currently Learning</h3>
             <div class="learning-items">
                 <div class="learning-item">
                     <i class='bx bxl-docker'></i>
-                    <span>Docker & DevOps</span>
+                    <span>Docker</span>
                 </div>
                 <div class="learning-item">
                     <i class='bx bx-code-alt' title="DSA"></i>
@@ -887,14 +887,14 @@
         <div class="partnership-section">
             <h2>Want to Collaborate with me?</h2>
             <p>I love building projects in Web Development, Cloud, and AI. Let's create something amazing together!</p>
-            <button class="subscribe-btn">Collaborate</button>
+            <button class="subscribe-btn" onclick="openCollaborateModal()" id="collaborate-btn">Collaborate</button>
         </div>
         
         <!-- Footer Content -->
         <div class="footer-content">
             <!-- Logo Section -->
             <div class="footer-logo">
-                <h3>let's <span>one.</span></h3>
+                <h3>let's <span>Connect.</span></h3>
             </div>
             
             <!-- Footer Links -->
@@ -984,5 +984,52 @@
             }, 2000);
         });
     </script>
+
+    <!-- Contact Form Modal -->
+    <div id="contactModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Let's Collaborate!</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <form id="collaborateForm" class="contact-form">
+                <div class="form-group">
+                    <label for="userName">Name *</label>
+                    <input type="text" id="userName" name="name" required placeholder="Your Full Name">
+                </div>
+                
+                <div class="form-group">
+                    <label for="userEmail">Email *</label>
+                    <input type="email" id="userEmail" name="email" required placeholder="your.email@example.com">
+                </div>
+                
+                <div class="form-group">
+                    <label for="userDomain">Domain/Field *</label>
+                    <select id="userDomain" name="domain" required>
+                        <option value="">Select your domain</option>
+                        <option value="Web Development">Web Development</option>
+                        <option value="Mobile App Development">Mobile App Development</option>
+                        <option value="UI/UX Design">UI/UX Design</option>
+                        <option value="Data Science">Data Science</option>
+                        <option value="Machine Learning/AI">Machine Learning/AI</option>
+                        <option value="Cloud Computing">Cloud Computing</option>
+                        <option value="DevOps">DevOps</option>
+                        <option value="Blockchain">Blockchain</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="projectDescription">Project Description *</label>
+                    <textarea id="projectDescription" name="description" required placeholder="Tell me about your project idea, goals, timeline, and how we can collaborate..."></textarea>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="btn-cancel">Cancel</button>
+                    <button type="submit" class="btn-submit">Send Collaboration Request</button>
+                </div>
+            </form>
+        </div>
+    </div>
 </body>
 </html>

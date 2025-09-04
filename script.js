@@ -685,3 +685,148 @@ function downloadResume() {
 window.openProjectModal = openProjectModal;
 window.closeProjectModal = closeProjectModal;
 window.downloadResume = downloadResume;
+
+// Global function for collaborate modal
+window.openCollaborateModal = function() {
+    console.log('openCollaborateModal function called');
+    
+    // First check if modal exists
+    const contactModal = document.getElementById('contactModal');
+    console.log('Contact modal element:', contactModal);
+    
+    if (contactModal) {
+        console.log('Opening modal...');
+        contactModal.classList.add('active');
+        contactModal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        console.log('Modal should now be visible');
+    } else {
+        console.error('Contact modal not found');
+        // Fallback: show a simple alert
+        alert('Contact modal not found. Please refresh the page and try again.');
+    }
+};
+
+// =================== CONTACT MODAL FUNCTIONALITY ===================
+document.addEventListener('DOMContentLoaded', function() {
+    const collaborateBtn = document.querySelector('.subscribe-btn');
+    const contactModal = document.getElementById('contactModal');
+    const closeModalBtn = document.querySelector('.close-modal');
+    const cancelBtn = document.querySelector('.btn-cancel');
+    const collaborateForm = document.getElementById('collaborateForm');
+
+    // Check if elements exist before adding event listeners
+    if (!collaborateBtn || !contactModal || !closeModalBtn || !cancelBtn || !collaborateForm) {
+        console.error('Contact modal elements not found');
+        return;
+    }
+
+    // Open modal when collaborate button is clicked
+    collaborateBtn.addEventListener('click', function() {
+        console.log('Collaborate button clicked'); // Debug log
+        contactModal.classList.add('active');
+        contactModal.style.display = 'flex';
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    });
+
+    // Close modal functions
+    function closeContactModal() {
+        contactModal.classList.remove('active');
+        setTimeout(() => {
+            contactModal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }, 300);
+        collaborateForm.reset(); // Reset form
+    }
+
+    // Close modal when X is clicked
+    closeModalBtn.addEventListener('click', closeContactModal);
+
+    // Close modal when Cancel is clicked
+    cancelBtn.addEventListener('click', closeContactModal);
+
+    // Close modal when clicking outside
+    contactModal.addEventListener('click', function(e) {
+        if (e.target === contactModal) {
+            closeContactModal();
+        }
+    });
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && contactModal.classList.contains('active')) {
+            closeContactModal();
+        }
+    });
+
+    // Handle form submission
+    collaborateForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Get form data
+        const formData = new FormData(collaborateForm);
+        const name = formData.get('name');
+        const email = formData.get('email');
+        const domain = formData.get('domain');
+        const description = formData.get('description');
+        
+        // Create email content
+        const subject = `Collaboration Request from ${name}`;
+        const body = `Hi Kuldeep,
+
+I would like to collaborate with you on a project.
+
+Name: ${name}
+Email: ${email}
+Domain/Field: ${domain}
+
+Project Description:
+${description}
+
+Looking forward to hearing from you!
+
+Best regards,
+${name}`;
+        
+        // Create mailto link
+        const mailtoLink = `mailto:kuldeepraj31016@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        
+        // Show success message
+        const submitBtn = document.querySelector('.btn-submit');
+        const originalText = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<i class="bx bx-check"></i> Opening Email...';
+        submitBtn.style.background = 'linear-gradient(45deg, #00ff88, #00cc6a)';
+        submitBtn.disabled = true;
+        
+        // Open email client
+        setTimeout(() => {
+            window.open(mailtoLink);
+            
+            // Close modal after a short delay
+            setTimeout(() => {
+                closeContactModal();
+                submitBtn.innerHTML = originalText;
+                submitBtn.style.background = '';
+                submitBtn.disabled = false;
+            }, 1500);
+        }, 500);
+    });
+
+    // Form validation enhancement
+    const modalFormInputs = document.querySelectorAll('#collaborateForm input, #collaborateForm select, #collaborateForm textarea');
+    modalFormInputs.forEach(input => {
+        input.addEventListener('blur', function() {
+            if (this.hasAttribute('required') && !this.value.trim()) {
+                this.style.borderColor = '#ff6b6b';
+            } else {
+                this.style.borderColor = 'rgba(0, 238, 255, 0.3)';
+            }
+        });
+        
+        input.addEventListener('input', function() {
+            if (this.style.borderColor === 'rgb(255, 107, 107)') {
+                this.style.borderColor = 'rgba(0, 238, 255, 0.3)';
+            }
+        });
+    });
+});
