@@ -61,15 +61,46 @@ if (mobileMenuToggle) {
     mobileMenuToggle.addEventListener('click', () => {
         navbar.classList.toggle('active');
         mobileMenuToggle.classList.toggle('active');
+        
+        // Prevent body scrolling when menu is open
+        if (navbar.classList.contains('active')) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'auto';
+        }
     });
 }
 
 // Close mobile menu when clicking on nav links
 document.querySelectorAll('.navbar a').forEach(link => {
     link.addEventListener('click', () => {
+        if (navbar.classList.contains('active')) {
+            navbar.classList.remove('active');
+            mobileMenuToggle.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+    });
+});
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (navbar && mobileMenuToggle && 
+        !navbar.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+        if (navbar.classList.contains('active')) {
+            navbar.classList.remove('active');
+            mobileMenuToggle.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+    }
+});
+
+// Close mobile menu on window resize
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 768 && navbar && navbar.classList.contains('active')) {
         navbar.classList.remove('active');
         mobileMenuToggle.classList.remove('active');
-    });
+        document.body.style.overflow = 'auto';
+    }
 });
 
 // =================== SMOOTH SCROLLING & ACTIVE NAV ===================

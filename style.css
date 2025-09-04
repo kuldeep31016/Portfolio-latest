@@ -2023,7 +2023,7 @@ border-radius: 0.5rem;
     color: #ededed;
     margin-bottom: 10px;
     margin-top: -40px;
-    margin-left: 100px;
+    margin-left: 0; /* Center the title properly */
 }
 
 .section-title span {
@@ -2035,7 +2035,7 @@ border-radius: 0.5rem;
     color: #ededed;
     opacity: 0.8;
     margin-bottom: 50px;
-    margin-left: 120px;
+    margin-left: 0; /* Center the subtitle properly */
     font-size: 1.1rem;
 }
 
@@ -3005,6 +3005,1035 @@ html {
     
     .form-actions {
         flex-direction: column;
+    }
+}
+
+/* =================== MOBILE & TABLET RESPONSIVE STYLES =================== */
+/* These styles ONLY apply to mobile and tablet devices, desktop remains unchanged */
+
+/* Mobile Menu Toggle - Hidden on desktop */
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.mobile-menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background: #fff;
+    margin: 3px 0;
+    transition: 0.3s;
+    border-radius: 2px;
+}
+
+.mobile-menu-toggle.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Mobile Devices (up to 768px) */
+@media (max-width: 768px) {
+    /* Ensure all content uses full width */
+    body {
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow-x: hidden !important;
+    }
+    
+    * {
+        box-sizing: border-box !important;
+    }
+    
+    /* Show mobile menu toggle */
+    .mobile-menu-toggle {
+        display: flex;
+    }
+    
+    /* Transform navbar for mobile */
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100vh;
+        background: rgba(5, 17, 41, 0.95);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: 0.3s ease-in-out;
+        z-index: 1000;
+    }
+    
+    .navbar.active {
+        left: 0;
+    }
+    
+    .navbar a {
+        margin: 15px 0;
+        font-size: 1.5rem;
+        padding: 10px 20px;
+        border-radius: 5px;
+        width: 80%;
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    /* Adjust header padding and center content */
+    .header {
+        padding: 15px 3%;
+        width: 100%;
+        box-sizing: border-box;
+        height: 70px; /* Set fixed height for mobile header */
+        min-height: 70px;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    /* Ensure logo stays on left */
+    .logo {
+        position: relative;
+        z-index: 999;
+    }
+    
+    /* Position theme toggle properly on mobile */
+    .theme-toggle {
+        position: absolute;
+        right: 80px !important; /* Move even further left */
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1001;
+    }
+    
+    /* Ensure mobile menu toggle has proper positioning */
+    .mobile-menu-toggle {
+        position: absolute;
+        right: 30px !important; /* Move significantly left from edge */
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1002;
+    }
+    
+    /* Home section mobile layout - center everything */
+    .home {
+        flex-direction: column;
+        text-align: center;
+        padding: 90px 3% 50px !important; /* Further reduced top padding for tighter spacing */
+        margin-top: 20px !important; /* Minimal margin for very tight spacing */
+        height: auto;
+        min-height: calc(100vh - 70px);
+        width: 100%;
+        box-sizing: border-box;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .home-content {
+        order: 2;
+        max-width: 100%;
+        margin: 0 auto;
+        width: 100%;
+        text-align: center;
+        margin-top: 10px !important; /* Minimal margin for tighter spacing */
+        padding-top: 5px !important; /* Minimal padding for very tight spacing */
+    }
+    
+    .home-content h1 {
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+    
+    .home-content h3 {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+        margin-top: 5px !important; /* Minimal top margin for tight spacing */
+        padding-top: 5px !important; /* Minimal padding for very tight spacing */
+    }
+    
+    /* Specific styling for the first "Hi, I'm" text */
+    .home-content h3:first-child {
+        margin-top: 10px !important; /* Minimal margin for very tight spacing */
+        padding-top: 5px !important; /* Minimal padding for tight spacing */
+        position: relative;
+        z-index: 10;
+    }
+    
+    .home-content p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        margin: 15px 0;
+    }
+    
+    .home-img {
+        order: 1;
+        margin-bottom: 15px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .home-img img {
+        width: 120px;
+        height: 120px;
+    }
+    
+    /* Hide profile picture in home section for mobile - keep only about section picture */
+    .home .about-img {
+        display: none !important;
+    }
+    
+    /* Hide floating icons container on mobile for cleaner look */
+    .home .image-container .floating-icons {
+        display: none !important;
+    }
+    
+    /* About section mobile - center everything */
+    .about {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 30px;
+        width: 100%;
+        padding: 0 3%;
+        box-sizing: border-box;
+    }
+    
+    .about-img {
+        order: 1;
+        width: 380px; /* Restored original container width */
+        height: 380px; /* Restored original container height */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin: 0 auto 20px auto; /* Center the container */
+        border-radius: 50%;
+        overflow: hidden;
+    }
+    
+    .about-img img {
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+        width: 380px; /* Restored original size */
+        height: 380px; /* Restored original size */
+        border-radius: 50%;
+        object-fit: cover;
+    }
+    
+    /* Keep only the about section profile image visible and centered */
+    .about .about-img {
+        display: flex !important; /* Show and center the about section profile image */
+        justify-content: center !important;
+        align-items: center !important;
+        text-align: center !important;
+        margin-bottom: 20px !important;
+    }
+    
+    .about-content {
+        order: 2;
+        width: 100%;
+        text-align: center;
+        padding: 0;
+    }
+    
+    .about-content h2 {
+        font-size: 1.5rem;
+    }
+    
+    .about-content p {
+        font-size: 0.85rem;
+        line-height: 1.5;
+    }
+    
+    .about-content h4 {
+        font-size: 1rem !important;
+    }
+    
+    /* Add margins to about text for mobile - create box effect */
+    .about-text p {
+        margin-left: 20px !important; /* Add left margin */
+        margin-right: 20px !important; /* Add right margin */
+        padding: 15px !important; /* Add padding inside */
+        font-size: 1.5rem !important; /* Slightly smaller for mobile */
+        line-height: 1.6 !important; /* Better readability */
+        text-align: left !important; /* Left align for better reading */
+        max-width: calc(100% - 40px) !important; /* Ensure it doesn't overflow */
+        box-sizing: border-box !important;
+    }
+    
+    /* Skills section mobile fix - center everything */
+    .container1 {
+        width: 100% !important;
+        height: auto !important;
+        padding: 15px !important;
+        margin: 0 auto !important;
+        margin-bottom: 20px !important;
+        box-sizing: border-box !important;
+    }
+    
+    section {
+        display: block !important;
+        flex-wrap: none !important;
+        width: 100% !important;
+        padding: 0 3% !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* Skills section specific mobile styling */
+    section:has(#Skills) {
+        display: block !important;
+        width: 100% !important;
+    }
+    
+    #Skills {
+        display: block !important;
+        width: 100% !important;
+    }
+    
+    .heading1 {
+        font-size: 1.3rem;
+        margin-bottom: 20px;
+    }
+    
+    .Technical-bars .bar {
+        margin: 15px 0;
+        font-size: 0.9rem !important;
+    }
+    
+    .Technical-bars .bar .info span {
+        font-size: 0.9rem !important;
+    }
+    
+    .progress-line {
+        height: 6px !important;
+    }
+    
+    .radial-bars {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important; /* 3 columns for mobile */
+        gap: 20px !important; /* Increased gap for better text visibility */
+        justify-items: center !important;
+        padding: 10px 0 !important; /* Add vertical padding */
+    }
+    
+    .radial-bar svg {
+        width: 100px !important;
+        height: 100px !important;
+    }
+    
+    /* Center the percentage text inside the circular bars */
+    .radial-bar .percentage {
+        position: absolute !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        font-size: 1rem !important;
+        text-align: center !important; /* Keep percentage inside circle centered */
+        margin-top: 0 !important; /* Reset margin for inside circle text */
+        font-weight: bold !important;
+        padding: 0 !important; /* Remove padding for inside circle text */
+    }
+    
+    /* Style for the skill name text below the circles */
+    .radial-bar .text {
+        width: 100% !important;
+        position: absolute !important; /* Keep absolute positioning like desktop */
+        text-align: center !important; /* Center the text below each circle */
+        left: 0 !important; /* Start from left edge of container */
+        right: 0 !important; /* Extend to right edge of container */
+        bottom: -25px !important; /* Position below the circle */
+        transform: none !important; /* Remove transform to avoid conflicts */
+        font-size: 0.85rem !important;
+        font-weight: 500 !important;
+        color: #ededed !important;
+        word-wrap: break-word !important;
+        line-height: 1.3 !important;
+        margin: 0 !important; /* Reset margin */
+        padding: 0 !important; /* Reset padding */
+        animation: showText 0.5s 1s linear forwards;
+        opacity: 1 !important; /* Ensure text is visible */
+    }
+    
+    /* Ensure each radial bar is properly centered */
+    .radial-bar {
+        position: relative !important; /* Ensure absolute positioning works for children */
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        width: 100% !important;
+        padding: 5px !important; /* Add padding around each bar */
+        min-height: 140px !important; /* Ensure enough space for text */
+    }
+    
+    /* Skills container mobile */
+    .skills-container .row {
+        grid-template-columns: repeat(3, 1fr) !important; /* 3 columns for mobile */
+        gap: 15px;
+    }
+    
+    .tech-item {
+        padding: 10px;
+        font-size: 0.8rem;
+        min-height: 60px;
+    }
+    
+    /* Projects grid mobile - center and full width */
+    .projects-grid {
+        grid-template-columns: 1fr !important;
+        gap: 15px;
+        width: 100% !important;
+        padding: 0 3% !important;
+        box-sizing: border-box !important;
+        margin: 0 auto !important;
+    }
+    
+    .project-card {
+        padding: 15px !important;
+        border-radius: 8px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        margin: 0 auto !important;
+    }
+    
+    /* Fix load more button spacing for mobile */
+    .load-more-container {
+        margin-top: 30px !important; /* Add space above the button */
+        margin-bottom: 20px !important; /* Add space below the button */
+        text-align: center !important;
+        padding: 0 3% !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    
+    .project-card h3 {
+        font-size: 1rem !important;
+        margin-bottom: 8px !important;
+        text-align: center !important;
+    }
+    
+    .project-card p {
+        font-size: 0.8rem !important;
+        line-height: 1.4 !important;
+        margin-bottom: 10px !important;
+        text-align: center !important;
+    }
+    
+    .project-card .btn-box {
+        padding: 8px 16px !important;
+        font-size: 0.8rem !important;
+        margin: 0 auto !important;
+        display: block !important;
+        width: fit-content !important;
+    }
+    
+    /* Certifications mobile - center and full width */
+    .certifications-grid {
+        grid-template-columns: 1fr !important;
+        gap: 15px;
+        width: 100% !important;
+        padding: 0 3% !important;
+        box-sizing: border-box !important;
+        margin: 0 auto !important;
+    }
+    
+    .cert-card {
+        padding: 15px 20px 20px 20px !important; /* Reduced top padding to move content up */
+        border-radius: 8px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        margin: 0 auto !important;
+        text-align: center !important;
+        height: auto !important; /* Remove fixed height */
+        min-height: 250px !important; /* Set a smaller minimum height */
+        max-height: 280px !important; /* Set a maximum height to prevent too large cards */
+        display: flex !important; /* Use flex for better content positioning */
+        flex-direction: column !important;
+        justify-content: flex-start !important; /* Align content to top */
+        align-items: center !important;
+    }
+    
+    .cert-card h3 {
+        font-size: 0.95rem !important; /* Slightly smaller title */
+        margin-bottom: 6px !important; /* Reduced margin */
+        margin-top: 0 !important; /* Remove top margin */
+        text-align: center !important;
+    }
+    
+    .cert-card p {
+        font-size: 0.75rem !important; /* Smaller text */
+        line-height: 1.3 !important; /* Tighter line height */
+        text-align: center !important;
+        margin-bottom: 8px !important; /* Add some margin control */
+        margin-top: 0 !important; /* Remove top margin */
+    }
+    
+    .cert-skills span {
+        font-size: 0.7rem !important;
+        padding: 4px 8px !important;
+        margin-bottom: 4px !important; /* Tighter spacing */
+    }
+    
+    /* Mobile styling for cert date and button */
+    .cert-date {
+        font-size: 0.75rem !important;
+        margin-bottom: 10px !important; /* Reduced margin */
+        margin-top: 5px !important;
+    }
+    
+    .cert-button {
+        padding: 8px 16px !important; /* Smaller button padding */
+        font-size: 0.75rem !important;
+        margin-top: 5px !important; /* Reduced top margin */
+    }
+    
+    /* Education timeline mobile */
+    .timeline {
+        padding-left: 15px;
+    }
+    
+    .timeline-item {
+        margin-bottom: 20px;
+        padding: 15px !important;
+    }
+    
+    .timeline-item h3 {
+        font-size: 1rem !important;
+        margin-bottom: 5px !important;
+    }
+    
+    .timeline-item h4 {
+        font-size: 0.9rem !important;
+        margin-bottom: 8px !important;
+    }
+    
+    .timeline-item p {
+        font-size: 0.8rem !important;
+        line-height: 1.4 !important;
+    }
+    
+    .timeline-item::before {
+        left: -20px;
+        width: 10px;
+        height: 10px;
+    }
+    
+    .timeline-item::after {
+        left: -24px;
+        width: 18px;
+        height: 18px;
+    }
+    
+    /* Button adjustments */
+    .btn-box {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        display: inline-block;
+        min-height: 40px;
+        line-height: 1.3;
+    }
+    
+    /* Container padding - center content */
+    .container {
+        padding: 30px 3%;
+        width: 100%;
+        box-sizing: border-box;
+        margin: 0 auto;
+    }
+    
+    /* Social icons mobile */
+    .home-sci {
+        margin: 15px 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .home-sci a {
+        margin: 0 8px;
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+    
+    /* Section headings mobile - center */
+    .sub-title {
+        font-size: 1.8rem !important;
+        margin-bottom: 20px !important;
+        text-align: center !important;
+        width: 100% !important;
+    }
+    
+    .sub-title span {
+        font-size: 1.8rem !important;
+    }
+    
+    /* Footer mobile */
+    .footer {
+        padding: 30px 20px;
+        text-align: center;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    /* Contact/Footer section mobile - center everything */
+    .modern-footer {
+        text-align: center !important;
+        padding: 40px 20px !important;
+    }
+    
+    .footer-container {
+        max-width: 100% !important;
+        margin: 0 auto !important;
+    }
+    
+    .partnership-section {
+        text-align: center !important;
+        margin-bottom: 30px !important;
+    }
+    
+    .partnership-section h2 {
+        font-size: 1.5rem !important;
+        margin-bottom: 15px !important;
+    }
+    
+    .partnership-section p {
+        font-size: 1rem !important;
+        margin-bottom: 20px !important;
+        padding: 0 10px !important;
+    }
+    
+    .subscribe-btn {
+        margin: 0 auto !important;
+        display: block !important;
+        width: fit-content !important;
+    }
+    
+    .footer-content {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 30px !important;
+    }
+    
+    .footer-logo {
+        text-align: center !important;
+        margin-bottom: 20px !important;
+    }
+    
+    .footer-links {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 20px !important;
+        width: 100% !important;
+    }
+    
+    .footer-column {
+        text-align: center !important;
+        width: 100% !important;
+    }
+    
+    .footer-social {
+        text-align: center !important;
+        margin-top: 20px !important;
+    }
+    
+    /* Center the 4 social icons in contact section */
+    .social-icons {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 20px !important;
+        margin: 0 auto !important;
+        width: 100% !important;
+    }
+    
+    .social-icon {
+        margin: 0 !important;
+        width: 45px !important;
+        height: 45px !important;
+        font-size: 1.3rem !important;
+    }
+    
+    .social-links {
+        justify-content: center !important;
+        gap: 15px !important;
+    }
+}
+
+/* Tablet Devices (769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .header {
+        padding: 20px 8%;
+    }
+    
+    .home {
+        padding: 120px 8% 0; /* Increased padding for tablet */
+    }
+    
+    .home-content h1 {
+        font-size: 3.5rem;
+    }
+    
+    .skills-container .row {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .certifications-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .container {
+        padding: 60px;
+    }
+}
+
+/* Small Mobile Devices (up to 480px) */
+@media (max-width: 480px) {
+    .header {
+        padding: 15px 2%;
+        width: 100%;
+        height: 70px; /* Set fixed height for small mobile header */
+        min-height: 70px;
+        position: relative;
+    }
+    
+    /* Position theme toggle properly on small mobile */
+    .theme-toggle {
+        position: absolute;
+        right: 75px !important; /* Move further left for small screens */
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1001;
+    }
+    
+    /* Ensure mobile menu toggle has proper positioning on small screens */
+    .mobile-menu-toggle {
+        position: absolute;
+        right: 25px !important; /* Move significantly left from edge */
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1002;
+    }
+    
+    .home {
+        padding: 90px 2% 30px !important; /* Further reduced top padding for tighter spacing */
+        margin-top: 20px !important; /* Minimal margin for very tight spacing */
+        width: 100%;
+        min-height: calc(100vh - 70px);
+    }
+    
+    .home-content h1 {
+        font-size: 2rem;
+    }
+    
+    .home-content h3 {
+        font-size: 1.2rem;
+    }
+    
+    .container {
+        padding: 20px 2%;
+        width: 100%;
+    }
+    
+    section {
+        padding: 15px 2% !important;
+        width: 100% !important;
+    }
+    
+    .home-img img {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .skills-container .row {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns for small mobile */
+    }
+    
+    .home-img img {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .container1 {
+        padding: 10px !important;
+        margin-bottom: 15px !important;
+    }
+    
+    .heading1 {
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+    }
+    
+    .radial-bars {
+        grid-template-columns: repeat(3, 1fr) !important; /* 3 columns for small mobile too */
+        gap: 15px !important; /* Adequate gap for small screens */
+        padding: 8px 0 !important; /* Add vertical padding */
+    }
+    
+    .radial-bar svg {
+        width: 80px !important;
+        height: 80px !important;
+    }
+    
+    /* Center the percentage text inside the circular bars */
+    .radial-bar .percentage {
+        position: absolute !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        font-size: 0.9rem !important;
+        text-align: center !important; /* Keep percentage inside circle centered */
+        margin-top: 0 !important; /* Reset margin for inside circle text */
+        font-weight: bold !important;
+        padding: 0 !important; /* Remove padding for inside circle text */
+    }
+    
+    /* Style for the skill name text below the circles */
+    .radial-bar .text {
+        width: 100% !important;
+        position: absolute !important; /* Keep absolute positioning like desktop */
+        text-align: center !important; /* Center the text below each circle */
+        left: 0 !important; /* Start from left edge of container */
+        right: 0 !important; /* Extend to right edge of container */
+        bottom: -20px !important; /* Position below the circle */
+        transform: none !important; /* Remove transform to avoid conflicts */
+        font-size: 0.75rem !important;
+        font-weight: 500 !important;
+        color: #ededed !important;
+        word-wrap: break-word !important;
+        line-height: 1.2 !important;
+        margin: 0 !important; /* Reset margin */
+        padding: 0 !important; /* Reset padding */
+        animation: showText 0.5s 1s linear forwards;
+        opacity: 1 !important; /* Ensure text is visible */
+    }
+    
+    /* Ensure each radial bar is properly centered on small mobile */
+    .radial-bar {
+        position: relative !important; /* Ensure absolute positioning works for children */
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        width: 100% !important;
+        padding: 3px !important; /* Add padding around each bar */
+        min-height: 120px !important; /* Ensure enough space for text on small screens */
+    }
+    
+    /* Contact section for small mobile */
+    .partnership-section h2 {
+        font-size: 1.2rem !important;
+    }
+    
+    .partnership-section p {
+        font-size: 0.8rem !important;
+    }
+    
+    .footer-links {
+        flex-direction: column !important;
+        gap: 10px !important;
+    }
+    
+    /* Smaller cards for tiny screens */
+    .project-card {
+        padding: 12px !important;
+    }
+    
+    /* Fix load more button spacing for small mobile */
+    .load-more-container {
+        margin-top: 25px !important; /* Add space above the button */
+        margin-bottom: 15px !important; /* Add space below the button */
+        text-align: center !important;
+        padding: 0 2% !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    
+    .project-card h3 {
+        font-size: 0.9rem !important;
+    }
+    
+    .project-card p {
+        font-size: 0.75rem !important;
+    }
+    
+    .cert-card {
+        padding: 10px 15px 15px 15px !important; /* Reduced top padding to move content up */
+        height: auto !important; /* Remove fixed height */
+        min-height: 250px !important; /* Smaller minimum height for small screens */
+        max-height: 300px !important; /* Smaller maximum height for small screens */
+        border-radius: 6px !important; /* Slightly smaller border radius */
+        display: flex !important; /* Use flex for better content positioning */
+        flex-direction: column !important;
+        justify-content: flex-start !important; /* Align content to top */
+        align-items: center !important;
+    }
+    
+    .cert-card h3 {
+        font-size: 0.85rem !important; /* Smaller title for small mobile */
+        margin-bottom: 5px !important; /* Reduced margin */
+        margin-top: 0 !important; /* Remove top margin */
+    }
+    
+    .cert-card p {
+        font-size: 0.7rem !important; /* Smaller text for small mobile */
+        line-height: 1.2 !important; /* Tighter line height */
+        margin-bottom: 6px !important; /* Smaller margin */
+        margin-top: 0 !important; /* Remove top margin */
+    }
+    
+    /* Add margins to about text for small mobile - create box effect */
+    .about-text p {
+        margin-left: 15px !important; /* Smaller left margin for small screens */
+        margin-right: 15px !important; /* Smaller right margin for small screens */
+        padding: 12px !important; /* Smaller padding inside */
+        font-size: 1.4  rem !important; /* Smaller font for small mobile */
+        line-height: 1.5 !important; /* Better readability */
+        text-align: left !important; /* Left align for better reading */
+        max-width: calc(100% - 30px) !important; /* Ensure it doesn't overflow */
+        box-sizing: border-box !important;
+    }
+    
+    .tech-item {
+        padding: 8px;
+        font-size: 0.75rem;
+        min-height: 50px;
+    }
+    
+    .container {
+        padding: 30px 15px;
+    }
+    
+    .navbar a {
+        font-size: 1.3rem;
+        margin: 10px 0;
+    }
+    
+    .about-content h2 {
+        font-size: 1.8rem;
+    }
+    
+    .timeline-item {
+        padding-left: 25px;
+    }
+}
+
+/* Extra Small Mobile Devices (up to 375px) */
+@media (max-width: 375px) {
+    .home-img img {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .home-content h1 {
+        font-size: 1.5rem;
+    }
+    
+    .home-content h3 {
+        font-size: 1rem;
+    }
+    
+    .home {
+        padding: 70px 1% 15px;
+        width: 100%;
+    }
+    
+    .container {
+        padding: 20px 1%;
+        width: 100%;
+    }
+    
+    section {
+        padding: 15px 1% !important;
+        width: 100% !important;
+    }
+    
+    .sub-title {
+        font-size: 1.5rem !important;
+    }
+}
+
+/* Very Small Mobile Devices (up to 320px) */
+@media (max-width: 320px) {
+    .home-img img {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .home-content h1 {
+        font-size: 1.3rem;
+    }
+    
+    .home-content h3 {
+        font-size: 0.9rem;
+    }
+    
+    .btn-box {
+        padding: 8px 16px;
+        font-size: 0.8rem;
+    }
+    
+    .container {
+        padding: 15px 1%;
+        width: 100%;
+    }
+    
+    section {
+        padding: 10px 1% !important;
+        width: 100% !important;
+    }
+    
+    .tech-item {
+        padding: 6px;
+        font-size: 0.7rem;
+        min-height: 45px;
+    }
+    
+    .radial-bar svg {
+        width: 70px !important;
+        height: 70px !important;
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+    .navbar a:hover,
+    .btn-box:hover,
+    .tech-item:hover,
+    .project-card:hover {
+        transform: none;
+        box-shadow: none;
+    }
+    
+    /* Ensure touch targets are accessible */
+    .navbar a,
+    .btn-box,
+    button {
+        min-height: 44px;
+        min-width: 44px;
     }
 }
 
